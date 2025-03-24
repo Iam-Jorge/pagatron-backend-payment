@@ -1,0 +1,32 @@
+### Comprobar si el servidor está funcionando
+GET http://localhost:3001/payment
+Content-Type: application/json
+
+### REGISTER A NEW CREDIT CARD
+POST http://localhost:3001/payment/add-card
+Content-Type: application/json
+
+{
+  "user_email": "ana@ana.com",
+  "card_number": "1234567812345628",
+  "cardholder_name": "Ana",
+  "expiration_date": "12/25"
+}
+
+### GET VALID CREDIT CARD
+POST http://localhost:3001/payment/validate-card
+Content-Type: application/json
+
+{
+  "card_number": "1234567812345678",
+  "expiration_date": "12/25"
+}
+
+### TOP-UP
+POST http://localhost:3001/payment/top-up
+Content-Type: application/json
+
+{
+  "card_number": "1234567812345678",
+  "amount": 50
+}
