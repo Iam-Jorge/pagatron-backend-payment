@@ -101,4 +101,18 @@ export class PaymentController {
             res.status(500).json({ error: 'Error al eliminar la tarjeta' });
         }
     }
+
+    static async getBalance(req, res) {
+        const { user_email } = req.query;
+        if (!user_email) {
+            return res.status(400).json({ error: "El correo del usuario es necesario" });
+        }
+    
+        const result = await PaymentModel.getBalance(user_email);
+        if (!result.success) {
+            return res.status(400).json({ error: result.message });
+        }
+    
+        res.json({ balance: result.balance });
+    }
 }

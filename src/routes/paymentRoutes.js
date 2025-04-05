@@ -13,3 +13,4 @@ paymentRouter.post('/validate-card', PaymentController.validateCard);
 paymentRouter.post('/top-up', PaymentController.topUp);
 paymentRouter.get('/cards', PaymentController.getAllCards);
 paymentRouter.delete('/delete-card/:cardNumber', PaymentController.deleteCard);
+paymentRouter.get('/balance', PaymentController.getBalance);

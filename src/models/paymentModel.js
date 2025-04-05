@@ -97,5 +97,20 @@ export class PaymentModel {
     return { success: true, message: "Tarjeta eliminada exitosamente" };
   }
 
+  // GET BALANCE
+  static async getBalance(userEmail) {
+    const connection = await connectToDB();  // Aquí usamos connectToDB en lugar de getConnection
+    const [rows] = await connection.execute(
+      "SELECT SUM(balance) AS total_balance FROM creditcards WHERE user_email = ?",
+      [userEmail]
+    );
+
+    if (!rows.length || rows[0].total_balance === null) {
+      return { success: false, message: "No se encontró saldo para este usuario." };
+    }
+
+    return { success: true, balance: rows[0].total_balance };
+  }
+
 }
 export default PaymentModel;
