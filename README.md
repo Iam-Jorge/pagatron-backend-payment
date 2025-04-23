@@ -60,3 +60,17 @@ To start the application in a production environment:
 
 This will start the Vite development server, and you can view the application in your browser at [http://localhost:3000](http://localhost:3000).
 This por can be modified in the `config.js` file.
+
+
+## API Routes Documentation 
+
+### Payments
+
+| Method | Path | Controller |
+|:------:|------|------------|
+| 🟠 **POST** | `/add-card` | `PaymentController.addCard` |
+| 🟠 **POST** | `/validate-card` | `PaymentController.validateCard` |
+| 🟠 **POST** | `/top-up` | `PaymentController.topUp` |
+| 🟢 **GET** | `/cards` | `PaymentController.getAllCards` |
+| 🔴 **DELETE** | `/delete-card/:cardNumber` | `PaymentController.deleteCard` |
+| 🟢 **GET** | `/balance` | `PaymentController.getBalance` |
